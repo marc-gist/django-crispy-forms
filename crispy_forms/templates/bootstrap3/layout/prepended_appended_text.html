@@ -17,7 +17,7 @@
             {% crispy_field field %}
             {% if crispy_appended_text %}<span class="input-group{% if active %} active{% endif %}{% if input_size %} {{ input_size }}{% endif %}">{{ crispy_appended_text|safe }}</span>{% endif %}
           {% else %}
-            <div class="input-group">
+            <div class="input-group"{% if inputgrp_id %} id="{{ inputgrp_id }}"{% endif %} {{ datatag|safe }}>
                 {% if crispy_prepended_text %}<span class="input-group-addon{% if active %} active{% endif %}{% if input_size %} {{ input_size }}{% endif %}">{{ crispy_prepended_text|safe }}</span>{% endif %}
                 {% crispy_field field %}
                 {% if crispy_appended_text %}<span class="input-group-addon{% if active %} active{% endif %}{% if input_size %} {{ input_size }}{% endif %}">{{ crispy_appended_text|safe }}</span>{% endif %}

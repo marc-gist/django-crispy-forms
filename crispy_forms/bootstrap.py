@@ -32,7 +32,9 @@ class PrependedAppendedText(Field):
             'crispy_appended_text': self.appended_text,
             'crispy_prepended_text': self.prepended_text,
             'input_size' : self.input_size,
-            'active': getattr(self, "active", False)
+            'active': getattr(self, "active", False),
+            'datatag': self.datatag,
+            'inputgrp_id': self.inputgrp_id,
         }
         template = self.template % template_pack
         return render_field(
@@ -46,6 +48,8 @@ class AppendedText(PrependedAppendedText):
     def __init__(self, field, text, *args, **kwargs):
         kwargs.pop('appended_text', None)
         kwargs.pop('prepended_text', None)
+        self.datatag = kwargs.pop('datatag', None)
+        self.inputgrp_id = kwargs.pop('inputgrp_id', None)
         self.text = text
         super(AppendedText, self).__init__(field, appended_text=text, **kwargs)
 
