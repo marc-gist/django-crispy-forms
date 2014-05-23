@@ -17,6 +17,8 @@ class PrependedAppendedText(Field):
         self.field = field
         self.appended_text = appended_text
         self.prepended_text = prepended_text
+        self.datatag = None
+        self.inputgrp_id = None
         if 'active' in kwargs:
             self.active = kwargs.pop('active')
 
